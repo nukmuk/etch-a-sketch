@@ -1,32 +1,38 @@
-// createGrid(prompt(), prompt());
-createGrid(100, 100);
+createGrid(16, 16);
+
+const resetBtn = document.querySelector(".reset");
+resetBtn.addEventListener("click", () => {
+	promptGridCreate();
+});
+
+function promptGridCreate() {
+	const width = prompt();
+	if (width > 100) {
+		alert("Width has to be between 1-100");
+	}
+	createGrid(width, width);
+}
 
 function createGrid(x, y) {
 	const grid = document.querySelector(".palikat");
 	grid.style.gridTemplateColumns = `repeat(${x}, 1fr)`;
 
-	const totalWidth = window.innerWidth;
-	console.log(totalWidth);
-
-	const cellWidth = totalWidth / x;
-	const cellHeight = cellWidth;
+	let cells = [];
 
 	for (let iy = 0; iy < y; iy++) {
 		for (let i = 0; i < x; i++) {
 			const cell = document.createElement("div");
 			cell.className = "cell";
-			// cell.style.minWidth = `${cellWidth}px`;
-			// cell.style.minHeight = `${cellHeight}px`;
-			if (i == 0) {
-				// cell.style.gridColumnStart =
-			}
 
+			// hover
 			cell.addEventListener("mouseover", (e) => {
 				// console.log(e.target);
 				e.target.classList.add("highlighted");
 			});
 
-			grid.appendChild(cell);
+			cells.push(cell);
 		}
 	}
+
+	grid.replaceChildren(...cells);
 }
