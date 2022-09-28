@@ -3,6 +3,7 @@ createGrid(100, 100);
 
 function createGrid(x, y) {
 	const grid = document.querySelector(".palikat");
+	grid.style.gridTemplateColumns = `repeat(${x}, 1fr)`;
 
 	const totalWidth = window.innerWidth;
 	console.log(totalWidth);
@@ -12,26 +13,20 @@ function createGrid(x, y) {
 
 	for (let iy = 0; iy < y; iy++) {
 		for (let i = 0; i < x; i++) {
-			const div = document.createElement("div");
-			// div.style.background = `gray`;
-			div.className = "cell";
-			div.style.width = `${cellWidth}px`;
-			div.style.height = `${cellHeight}px`;
-			let float = "left";
-			if (i == 0 && iy != 0) {
-				float = "bottom";
+			const cell = document.createElement("div");
+			cell.className = "cell";
+			// cell.style.minWidth = `${cellWidth}px`;
+			// cell.style.minHeight = `${cellHeight}px`;
+			if (i == 0) {
+				// cell.style.gridColumnStart =
 			}
-			if (i == 0 && iy == 0) {
-				continue;
-			}
-			div.style.float = float;
 
-			div.addEventListener("mouseover", (e) => {
+			cell.addEventListener("mouseover", (e) => {
 				// console.log(e.target);
-				e.target.className = "highlighted";
+				e.target.classList.add("highlighted");
 			});
 
-			grid.appendChild(div);
+			grid.appendChild(cell);
 		}
 	}
 }

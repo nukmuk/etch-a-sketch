@@ -1,7 +1,19 @@
-.highlighted {
-	background: black;
+body {
+	background: #222222;
+}
+
+.palikat {
+	display: grid;
+	grid-template-columns: repeat(100, 1fr);
+	grid-gap: 1px;
+	background: #333333;
 }
 
 .cell {
-	background: lightgray;
+	background: #444444;
+	aspect-ratio: 1 / 1;
+}
+
+.highlighted {
+	background: black;
 }
