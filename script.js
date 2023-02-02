@@ -6,8 +6,8 @@ resetBtn.addEventListener("click", () => {
 });
 
 function promptGridCreate() {
-	const width = prompt();
-	if (width > 100) {
+	const width = prompt("Write a number between 1-100");
+	if (!(width >= 1 && width <= 100)) {
 		alert("Width has to be between 1-100");
 	}
 	createGrid(width, width);

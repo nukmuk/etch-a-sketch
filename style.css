@@ -1,12 +1,14 @@
 body {
 	background: #222222;
+	width: 100vh;
 }
 
 .palikat {
 	display: grid;
 	grid-template-columns: repeat(100, 1fr);
-	grid-gap: 1px;
+	grid-gap: 2px;
 	background: #333333;
+	width: 90%;
 }
 
 .cell {
@@ -15,5 +17,5 @@ body {
 }
 
 .highlighted {
-	background: black;
+	background: white;
 }
